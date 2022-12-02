@@ -1,4 +1,12 @@
 {{ form_start(form) }}
-    {{ form_row(form.nom) }}
-<button class="btn">{{ button_label|default('Save') }} </button>
+<div style="display: flex; gap:1em; align-items: ">
+    {{  form_label(form.nom, 'porejgpoergj') }}
+    {{ form_widget(form.nom) }}
+</div>
+<div style="display: flex; gap:1em; align-items: ">
+    {{ form_label(form.address, 'choixndljcn') }}
+    {{  form_widget(form.address) }}
+</div>
+{{ form_end(form) }}
+{#<button class="btn">{{ button_label|default('Save') }} </button>#}
 {{ form_end(form) }}
