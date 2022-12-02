@@ -4,6 +4,26 @@
 
 {% block body %}
     <h1>Create new Simple</h1>
-    {{ include('simple/_form.html.twig') }}
+    {#        {{ include('simple/_form.html.twig')  }} #}
+
+    <div data-controller="autocomplete">
+        <input data-autocomplete-target="name" type="text">
+
+        <button data-action="click->autocomplete#toggle">Greet</button>
+
+        <span data-hello-target="output"></span>
+    </div>
+
+<div
+        class="input-group"
+        {{ stimulus_controller({
+            'autocomplete': {
+                url: path('app_simple_new', { preview: 1 })
+            },
+            'autocomplete-transition': {}
+        }) }}
+        data-action="toggle->autocomplete#toggle"
+>
+    <a href="{{ path('app_simple_index') }}">back to list</a>
 
 {% endblock %}

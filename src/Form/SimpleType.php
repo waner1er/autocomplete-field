@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Entity\Choix;
 use App\Entity\Simple;
-use App\Form\Type\AddressType;
+use App\Form\Type\AutocompleteType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -24,7 +24,7 @@ class SimpleType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('address', AddressType::class);
+            ->add('address', AutocompleteType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

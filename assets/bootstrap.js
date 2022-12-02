@@ -1,6 +1,6 @@
 import { startStimulusApp } from '@symfony/stimulus-bridge';
 import { Autocomplete } from 'stimulus-autocomplete'
-import CustomAutocomplete_controller from "./controllers/custom-autocomplete_controller";
+import CustomAutocomplete_controller from "./controllers/autocomplete_controller";
 import Hello_controller from "./controllers/hello_controller";
 
 // Registers Stimulus controllers from controllers.json and in the controllers/ directory

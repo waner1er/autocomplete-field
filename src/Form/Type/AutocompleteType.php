@@ -8,7 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Routing\RouterInterface;
 
-class AddressType extends AbstractType
+class AutocompleteType extends AbstractType
 {
     public function __construct(RouterInterface $router)
     {
