@@ -2,6 +2,7 @@
 // src/Form/Type/PostalAddressType.php
 namespace App\Form\Type;
 
+use App\Entity\Choix;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -21,7 +22,7 @@ class AutocompleteType extends AbstractType
             ->add('choix', ChoiceType::class, [
                 'autocomplete' => true,
                 'attr' => [
-                    'data-controller' => 'custom-autocomplete',
+                    'data-controller' => 'autocomplete',
                 ],
                 'autocomplete_url' => $this->router->generate('app_address_autocomplete'),
             ])

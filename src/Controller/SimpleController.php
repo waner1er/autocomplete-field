@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Simple;
 use App\Form\SimpleType;
 use App\Repository\SimpleRepository;
-use App\Service\ApiAddressService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,7 +24,6 @@ class SimpleController extends AbstractController
     #[Route('/new', name: 'app_simple_new', methods: ['GET', 'POST'])]
     public function new(Request $request): Response
     {
-
         $form = $this->createForm(SimpleType::class);
 
         return $this->renderForm('simple/new.html.twig', [
