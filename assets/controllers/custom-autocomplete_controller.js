@@ -6,13 +6,12 @@ export default class extends Controller {
     toggle() {
         let select = document.getElementById('simple_address_choix');
         this.outputTarget.textContent = select.options[select.selectedIndex].text
-        console.log(this.outputTarget.textContent)
         let zipcodeInput = document.getElementById('simple_address_zipCode');
         let cityInput = document.getElementById('simple_address_city');
-        // if (zipcodeInput && cityInput) {
-        //
-        //     zipcodeInput.value = select.options[select.selectedIndex].postcode;
-        //     cityInput.value = select.options[select.selectedIndex].text;
-        // }
+        if (zipcodeInput && cityInput) {
+            console.log('zipcodeInput && cityInput');
+            zipcodeInput.value = select.options[select.selectedIndex].postcode;
+            cityInput.value = select.options[select.selectedIndex].text;
+        }
     }
 }

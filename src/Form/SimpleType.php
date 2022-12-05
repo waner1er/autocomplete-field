@@ -7,6 +7,7 @@ use App\Entity\Simple;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Routing\Router;
@@ -29,6 +30,10 @@ class SimpleType extends AbstractType
                     'data-controller' => 'custom-autocomplete',
                 ],
                 'autocomplete_url' => $this->router->generate('app_address_autocomplete'),
+            ])
+            ->add('city', TextType::class)
+            ->add('zipCode', TextType::class, [
+                'label' => 'ZIP Code',
             ]);
     }
 
