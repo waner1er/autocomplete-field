@@ -31,13 +31,16 @@ class ApiAddressService
 
             foreach ($response->toArray()['features'] as $address) {
                 $addresses[] = [
-                    'text' => $address['properties']['label'],
                     'value' => $address['properties']['id'],
+                    'text' => $address['properties']['label'],
+                    'postcode' => $address['properties']['postcode'],
+                    'city' => $address['properties']['city'],
                 ];
             }
 
-        }
+}
         catch (\Exception $e) {$addresses[] = ['text' => 'Une erreur s\'est produite', 'value' => 0];}
+
 
         return [
             'results' => $addresses,
