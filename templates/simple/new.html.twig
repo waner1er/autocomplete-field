@@ -3,20 +3,9 @@
 {% block title %}New Simple{% endblock %}
 
 {% block body %}
-    <h1>Create new Simple</h1>
-    {{ include('simple/_form.html.twig') }}
+        <h1>Create new Simple</h1>
 
-    {#        <input data-hello-target="name" type="text"> #}
-    <div data-controller="autocomplete">
-        <button data-action="click->autocomplete#toggle">
-            Envoyer
-        </button>
-
-        <span data-autocomplete-target="output" id="test" hidden>
-            <label>test</label>
-            <input type="text" class="test">
-  </span>
-    </div>
+            {{ include('simple/_form.html.twig') }}
     <a href="{{ path('app_simple_index') }}">back to list</a>
 
 {% endblock %}
