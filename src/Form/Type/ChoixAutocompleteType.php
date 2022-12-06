@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Routing\RouterInterface;
 
-class AutocompleteType extends AbstractType
+class ChoixAutocompleteType extends AbstractType
 {
     public function __construct(RouterInterface $router)
     {
@@ -23,12 +23,11 @@ class AutocompleteType extends AbstractType
                 'autocomplete' => true,
                 'attr' => [
                     'data-controller' => 'autocomplete',
+                    'data-action' => 'input->autocomplete#toggle',
                 ],
                 'autocomplete_url' => $this->router->generate('app_address_autocomplete'),
             ])
-            ->add('city', TextType::class)
-            ->add('zipCode', TextType::class, [
-                'label' => 'ZIP Code',
-            ]);
+            ->add('postcode', TextType::class)
+            ->add('city', TextType::class);
     }
 }

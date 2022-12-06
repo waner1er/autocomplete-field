@@ -14,9 +14,24 @@ class AddressController extends AbstractController
 {
 
     #[Route('/address_autocomplete', name: 'app_address_autocomplete')]
-    public function autocomplete(Request $request, ApiAddressService $apiAddressService): JsonResponse
+    public function address(Request $request, ApiAddressService $apiAddressService): JsonResponse
     {
         $response = $apiAddressService->getAddressData($request->query->get('query'));
         return  $this->json($response);
     }
+
+    #[Route('/postcode_autocomplete', name: 'app_postcode_autocomplete')]
+    public function postcode(Request $request, ApiAddressService $apiAddressService): JsonResponse
+    {
+        $response = $apiAddressService->getPostcodeData($request->query->get('query'));
+        return  $this->json($response);
+    }
+
+    #[Route('/city_autocomplete', name: 'app_city_autocomplete')]
+    public function city(Request $request, ApiAddressService $apiAddressService): JsonResponse
+    {
+        $response = $apiAddressService->getCityData($request->query->get('query'));
+        return  $this->json($response);
+    }
+
 }

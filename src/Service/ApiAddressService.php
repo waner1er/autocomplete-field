@@ -31,10 +31,10 @@ class ApiAddressService
 
             foreach ($response->toArray()['features'] as $address) {
                 $addresses[] = [
-                    'value' => $address['properties']['id'],
+                    'value' => json_encode($address['properties']),
                     'text' => $address['properties']['label'],
-                    'postcode' => $address['properties']['postcode'],
                     'city' => $address['properties']['city'],
+                    'postcode' => $address['properties']['postcode'],
                 ];
             }
 
@@ -47,4 +47,5 @@ class ApiAddressService
         ];
 
     }
+
 }

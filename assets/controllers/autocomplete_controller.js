@@ -1,18 +1,25 @@
 import {Controller} from '@hotwired/stimulus';
 
 export default class extends Controller {
-    static targets = ["autocomplete", "output"]
+    static targets = ["autocomplete"]
+
+    connect() {
+        console.log("Hello, Stimulus!", this.element)
+        // this.outputTarget.textContent = 'Hello, Stimulus!'
+    }
+
 
     toggle() {
-        let select = document.getElementById('simple_address_choix');
-        this.outputTarget.textContent = select.options[select.selectedIndex].text
-        console.log(this.outputTarget.textContent)
-        let zipcodeInput = document.getElementById('simple_address_zipCode');
-        let cityInput = document.getElementById('simple_address_city');
-        // if (zipcodeInput && cityInput) {
-        //
-        //     zipcodeInput.value = select.options[select.selectedIndex].postcode;
-        //     cityInput.value = select.options[select.selectedIndex].text;
-        // }
+        // this.outputTarget.textContent = select.options[select.selectedIndex].text
+        let address = JSON.parse(this.element.value)
+        // console.log(address)
+        let cityInput =  document.getElementById('simple_address_city')
+        let zipCodeInput =  document.getElementById('simple_address_postcode')
+        let streetInput = document.getElementById('simple_address_choix');
+
+        console.log(this.element.value)
+
+        cityInput.value = address.city
+        zipCodeInput.value = address.postcode
     }
 }
