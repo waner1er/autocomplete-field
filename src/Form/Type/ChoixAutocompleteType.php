@@ -27,6 +27,7 @@ class ChoixAutocompleteType extends AbstractType
                 ],
                 'autocomplete_url' => $this->router->generate('app_address_autocomplete'),
             ])
+            ->add('street', TextType::class)
             ->add('postcode', TextType::class)
             ->add('city', TextType::class);
     }
